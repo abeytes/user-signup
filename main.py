@@ -22,11 +22,11 @@ def signup():
     email_error = ''
 
     if is_invalid(username):
-        username_error = "That's not a valid username"
+        username_error = "username is not valid"
     if is_invalid(password):
-        password_error = "That's not a valid password"
+        password_error = "password is not valid"
     if verifypassword == '':
-        verfiy_error = "That's not a valid password"
+        verfiy_error = "password not valid"
     if verifypassword != password:
         verfiy_error = "Passwords don't match"
     if email != '' and (email.count("@") != 1 or email.count(".") != 1 or is_invalid(email)):
@@ -35,12 +35,12 @@ def signup():
         return redirect('/welcome?username=' + username)
     else:
         return render_template('signin.html',
-            username = username,
-            email = email,
-            username_error = username_error,
-            password_error = password_error,
-            verfiy_error = verfiy_error,
-            email_error = email_error)
+        username = username,
+        email = email,
+        username_error = username_error,
+        password_error = password_error,
+        verfiy_error = verfiy_error,
+        email_error = email_error)
 
 @app.route("/welcome")
 def welcome():
